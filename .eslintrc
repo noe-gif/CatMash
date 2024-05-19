@@ -1,0 +1,142 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "plugins": ["perfectionist", "unused-imports", "@typescript-eslint", "prettier"],
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "max-len": "off",
+    "indent": ["off", 2],
+    "implicit-arrow-linebreak": "off",
+    "default-param-last": "off",
+    "object-shorthand": "off",
+    "arrow-body-style": "off",
+    "require-yield": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "prefer-template": "off",
+    "no-unused-vars": "off",
+    "no-undef": ["off"],
+    "no-promise-executor-return": "off",
+    "no-alert": "off",
+    "no-restricted-exports": "off",
+    "no-console": "off",
+    "no-else-return": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/no-unstable-nested-components": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/no-unused-vars": [
+      1,
+      {
+        "args": "none"
+      }
+    ],
+    "react/jsx-no-duplicate-props": [
+      1,
+      {
+        "ignoreCase": false
+      }
+    ],
+    // unused-imports
+    // https://www.npmjs.com/package/eslint-plugin-unused-imports
+    "unused-imports/no-unused-imports": 1,
+    "unused-imports/no-unused-vars": [
+      0,
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // perfectionist
+    // https://eslint-plugin-perfectionist.azat.io/
+    "perfectionist/sort-named-imports": [
+      1,
+      {
+        "order": "asc",
+        "type": "line-length"
+      }
+    ],
+    "perfectionist/sort-named-exports": [
+      1,
+      {
+        "order": "asc",
+        "type": "line-length"
+      }
+    ],
+    "perfectionist/sort-exports": [
+      1,
+      {
+        "order": "asc",
+        "type": "line-length"
+      }
+    ],
+    "perfectionist/sort-imports": [
+      1,
+      {
+        "order": "asc",
+        "type": "line-length",
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "custom-mui",
+          "custom-routes",
+          "custom-hooks",
+          "custom-utils",
+          "internal",
+          "custom-components",
+          "custom-sections",
+          "custom-types",
+          ["parent", "sibling", "index"],
+          "object",
+          "unknown"
+        ],
+        "custom-groups": {
+          "value": {
+            "custom-mui": "@mui/**",
+            "custom-routes": "src/routes/**",
+            "custom-hooks": "src/hooks/**",
+            "custom-utils": "src/utils/**",
+            "custom-components": "src/components/**",
+            "custom-sections": "src/sections/**",
+            "custom-types": "src/types/**"
+          }
+        },
+        "internal-pattern": ["src/**"]
+      }
+    ]
+  }
+}
