@@ -1,11 +1,11 @@
-<h1 align="center">Seiki Web-App</h1></br>
+<h1 align="center">Catmash-app</h1></br>
 
 <p align="center">
 <img src="https://cdn.discordapp.com/attachments/774360587391860769/1168788408299180042/banner.png?ex=65530a07&is=65409507&hm=12457060082a871a690dd54113054da9af7b15a85546a35da99abba0b08d0c51&" alt="banner"></img>
 </p>
 
 <p align="center">
-   code base for the seiki web app project
+   code base for the catmash web app project
 </p>
 
 ## Doc
@@ -14,8 +14,8 @@ Follow these instructions to build and run the project
 
 ### Setup Project
 
-- Clone this repository using `git clone https://noecampo@bitbucket.org/jaafar_elalamy/seiki-webapp.git`.
-- `cd` into `seiki-web-app`.
+- Clone this repository using `git clone `.
+- `cd` into `catmash`.
 - `yarn install` to get all the dependencies.
 
 ```
@@ -48,13 +48,8 @@ seiki-web-app/
 |   ├── app/                        # Main app pages corresponding to the route (url)
 |   └── components/                 # Components
 |       └── mui/                    # MUI reusable components
-|       └── dashboard/              # Specific components linked to the backoffice application
-|       └── __admin__/              # Specific components linked to the dashboard application
 |   └── sections/                   # Different UI pages of the applications (called by the app files)
 |       └── general/                # Generic pages
-|       └── dashboard/              # Dashbaord specific pages
-|       └── __admin__/              # Backoffice specific pages
-|   └── auth/                       # Auth engine
 |   └── types/                      # Typescript types and interfaces declarations
 |   └── routes/                     # Routing engine
 ├── package.json                    # This file contains metadata about the project, including the project name, version, and dependencies.
@@ -77,8 +72,8 @@ seiki-web-app/
 
 ## License
 
-**Seiki-web-app** Copyright ©2023 - Seiki.co
+**Catmash-app** Copyright ©2023 - Catmash
 
-**SEIKI** software under
+**CATMASH** software under
 the [GPL v3](https://opensource.org/licenses/gpl-3.0.html)
 license, see the [LICENSE](./LICENSE) file in the project root for the full license text.

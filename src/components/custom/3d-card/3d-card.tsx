@@ -2,6 +2,7 @@
 
 import { cn } from 'src/utils/cn';
 import React, { createContext, useState, useContext, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
@@ -37,19 +38,33 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
+  const handleMouseDown = () => {
+    if (!containerRef.current) return;
+    containerRef.current.style.transform = `scale(0.95)`;
+  };
+
+  const handleMouseUp = () => {
+    if (!containerRef.current) return;
+    containerRef.current.style.transform = `scale(1)`;
+  };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
         className={cn('py-20 flex items-center justify-center', containerClassName)}
         style={{
+          cursor: 'pointer',
           perspective: '1000px',
         }}
       >
-        <div
+        <motion.div
           ref={containerRef}
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
           className={cn(
             'flex items-center justify-center relative transition-all duration-200 ease-linear',
             className
@@ -57,9 +72,10 @@ export const CardContainer = ({
           style={{
             transformStyle: 'preserve-3d',
           }}
+          whileTap={{ scale: 0.75 }}
         >
           {children}
-        </div>
+        </motion.div>
       </div>
     </MouseEnterContext.Provider>
   );

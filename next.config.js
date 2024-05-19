@@ -3,7 +3,6 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   trailingSlash: true,
-  output: 'export',
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}',

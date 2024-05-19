@@ -1,3 +1,5 @@
+import MashingView from 'src/sections/mashing/view';
+
 // ----------------------------------------------------------------------
 
 export const metadata = {
@@ -5,5 +7,5 @@ export const metadata = {
 };
 
 export default function MashingPage() {
-  return <></>;
+  return <MashingView />;
 }
