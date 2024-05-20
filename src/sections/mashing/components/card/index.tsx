@@ -9,23 +9,29 @@ import {
   cardTitleStyles,
 } from './style';
 
-export const MashCard = () => {
+type MashCardProps = {
+  cat: {
+    id: string;
+    url: string;
+    name: string;
+    score: number;
+  } | null;
+};
+
+export const MashCard = ({ cat }: MashCardProps) => {
+  if (!cat) return null;
+
   return (
     <CardContainer className={cardContainerStyles}>
       <CardBody className={cardBodyStyles}>
         <CardItem translateZ="100" className="w-full">
-          <Box
-            component="img"
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="thumbnail"
-            sx={cardImageStyles}
-          />
+          <Box component="img" src={cat.url} alt={cat.name} sx={cardImageStyles} />
         </CardItem>
         <CardItem translateZ="50" className={cardTitleStyles}>
-          Make things float in air
+          {cat.name}
         </CardItem>
         <CardItem as="p" translateZ="60" className={cardTextStyles}>
-          Hover over this card to unleash the power of CSS perspective
+          Score: {cat.score}
         </CardItem>
       </CardBody>
     </CardContainer>

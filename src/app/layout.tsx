@@ -8,6 +8,7 @@ import { primaryFont } from 'src/theme/typography';
 
 import ProgressBar from 'src/components/mui/progress-bar';
 import { SettingsProvider } from 'src/components/mui/settings';
+import { CatListContextProvider } from 'src/context';
 
 // ----------------------------------------------------------------------
 
@@ -34,21 +35,23 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={primaryFont.className}>
       <body>
-        <SettingsProvider
-          defaultSettings={{
-            themeMode: 'light', // 'light' | 'dark'
-            themeDirection: 'ltr', //  'rtl' | 'ltr'
-            themeContrast: 'default', // 'default' | 'bold'
-            themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
-            themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-            themeStretch: true,
-          }}
-        >
-          <ThemeProvider>
-            <ProgressBar />
-            {children}
-          </ThemeProvider>
-        </SettingsProvider>
+        <CatListContextProvider>
+          <SettingsProvider
+            defaultSettings={{
+              themeMode: 'light', // 'light' | 'dark'
+              themeDirection: 'ltr', //  'rtl' | 'ltr'
+              themeContrast: 'default', // 'default' | 'bold'
+              themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
+              themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+              themeStretch: true,
+            }}
+          >
+            <ThemeProvider>
+              <ProgressBar />
+              {children}
+            </ThemeProvider>
+          </SettingsProvider>
+        </CatListContextProvider>
       </body>
     </html>
   );

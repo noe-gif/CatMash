@@ -3,7 +3,6 @@
 // ----------------------------------------------------------------------
 
 import { Box, Divider, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { MashCard } from '../components/card';
 import {
   boxStyles,
@@ -13,6 +12,14 @@ import {
   subtitleStyle,
   titleWrapperStyle,
 } from './style';
+import { MashingViewHooks } from 'src/hooks/section/mashing/view';
+import { cat } from 'src/context/types';
+
+type MashCatCardWrapperProps = {
+  cat: cat | null;
+  isSmallScreen: boolean;
+  onClick: () => void;
+};
 
 const MashingTitle = () => {
   return (
@@ -27,28 +34,37 @@ const MashingTitle = () => {
   );
 };
 
-const CatMashCat = ({ isSmallScreen }: { isSmallScreen: boolean }) => {
+const MashCatCardWrapper = ({ cat, isSmallScreen, onClick }: MashCatCardWrapperProps) => {
   return (
-    <Box sx={boxStyles(isSmallScreen)}>
-      <MashCard />
+    <Box sx={boxStyles(isSmallScreen)} onClick={onClick}>
+      <MashCard cat={cat} />
     </Box>
   );
 };
+
 export default function MashingView() {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const { rightCardCat, leftCardCat, isSmallScreen, onLeftCardClick, onRightCardClick } =
+    MashingViewHooks();
 
   return (
     <Box sx={mainWrapperStyle}>
       <MashingTitle />
       <Box sx={cardContainerStyles(isSmallScreen)}>
-        <CatMashCat isSmallScreen={isSmallScreen} />
+        <MashCatCardWrapper
+          cat={leftCardCat}
+          isSmallScreen={isSmallScreen}
+          onClick={onLeftCardClick}
+        />
         <Divider
           orientation={isSmallScreen ? 'horizontal' : 'vertical'}
           flexItem
           sx={dividerStyles(isSmallScreen)}
         />
-        <CatMashCat isSmallScreen={isSmallScreen} />
+        <MashCatCardWrapper
+          cat={rightCardCat}
+          isSmallScreen={isSmallScreen}
+          onClick={onRightCardClick}
+        />
       </Box>
     </Box>
   );
