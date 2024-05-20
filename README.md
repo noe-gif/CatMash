@@ -1,7 +1,7 @@
 <h1 align="center">Catmash-app</h1></br>
 
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/774360587391860769/1168788408299180042/banner.png?ex=65530a07&is=65409507&hm=12457060082a871a690dd54113054da9af7b15a85546a35da99abba0b08d0c51&" alt="banner"></img>
+<img src="https://github.com/noe-gif/CatMash/blob/main/public/logo/cat.png" alt="banner"></img>
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@ Follow these instructions to build and run the project
 
 ### Setup Project
 
-- Clone this repository using `git clone `.
+- Clone this repository using `git clone https://github.com/noe-gif/CatMash.git`.
 - `cd` into `catmash`.
 - `yarn install` to get all the dependencies.
 
