@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { API_URI } from 'src/config-global';
 import { cat } from 'src/context/types';
+import { endpoints } from 'src/utils/axios';
 
 interface CatsResponse {
   images: cat[];
@@ -35,7 +37,7 @@ const getRandomCuteName = (): string => {
 
 const fetchCats = async (): Promise<cat[]> => {
   try {
-    const response = await axios.get<CatsResponse>('https://data.latelier.co/cats.json');
+    const response = await axios.get<CatsResponse>(`${API_URI}/${endpoints.catList}`);
     const catsData = response.data;
 
     const enhancedCats = catsData.images.map((cat) => ({

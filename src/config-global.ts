@@ -1,1 +1,1 @@
-export const NEXT_PUBLIC_PLATFORM_BASE_URL = process.env.NEXT_PUBLIC_PLATFORM_BASE_URL;
+export const API_URI = process.env.NEXT_PUBLIC_API_URI;
