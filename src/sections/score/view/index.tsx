@@ -2,12 +2,9 @@
 
 // ----------------------------------------------------------------------
 
-import { Box, Divider, Typography, useMediaQuery } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { subtitleStyle, titleWrapperStyle } from './style';
-import { useCatListContext } from 'src/context/use-platform-context';
 import ItemListHorizontal from 'src/components/mui/score-list/item-list-horizontal';
-import { useEffect, useState } from 'react';
-import { cat } from 'src/context/types';
 import ScoreViewHooks from 'src/hooks/section/score/view';
 
 const ScoreTitle = () => {

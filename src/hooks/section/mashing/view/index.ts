@@ -32,8 +32,8 @@ export const MashingViewHooks = () => {
   useEffect(() => {
     fetchCats()
       .then((cats) => {
-        if (getCatList().length > 0) return;
-        initializeCatLists(cats);
+        console.log('icicicicici', getCatList());
+        initializeCatLists(getCatList().length > 0 ? getCatList() : cats);
       })
       .catch((error) => {
         console.error('Failed to fetch cats:', error);
