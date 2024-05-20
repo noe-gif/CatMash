@@ -32,7 +32,6 @@ export const MashingViewHooks = () => {
   useEffect(() => {
     fetchCats()
       .then((cats) => {
-        console.log('icicicicici', getCatList());
         initializeCatLists(getCatList().length > 0 ? getCatList() : cats);
       })
       .catch((error) => {
