@@ -19,21 +19,27 @@ type MashCardProps = {
 };
 
 export const MashCard = ({ cat }: MashCardProps) => {
-  if (!cat) return null;
-
   return (
     <CardContainer className={cardContainerStyles}>
-      <CardBody className={cardBodyStyles}>
-        <CardItem translateZ="100" className="w-full">
-          <Box component="img" src={cat.url} alt={cat.name} sx={cardImageStyles} />
-        </CardItem>
-        <CardItem translateZ="50" className={cardTitleStyles}>
-          {cat.name}
-        </CardItem>
-        <CardItem as="p" translateZ="60" className={cardTextStyles}>
-          Score: {cat.score}
-        </CardItem>
-      </CardBody>
+      {cat ? (
+        <CardBody className={cardBodyStyles}>
+          <CardItem translateZ="100" className="w-full">
+            <Box component="img" src={cat.url} alt={cat.name} sx={cardImageStyles} />
+          </CardItem>
+          <CardItem translateZ="50" className={cardTitleStyles}>
+            {cat.name}
+          </CardItem>
+          <CardItem as="p" translateZ="60" className={cardTextStyles}>
+            Score: {cat.score}
+          </CardItem>
+        </CardBody>
+      ) : (
+        <CardBody className={`${cardBodyStyles} shimmer-light-mode`}>
+          <CardItem translateZ="100" className="w-full">
+            <Box sx={cardImageStyles} />
+          </CardItem>
+        </CardBody>
+      )}
     </CardContainer>
   );
 };
