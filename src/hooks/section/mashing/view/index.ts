@@ -4,6 +4,7 @@ import fetchCats from 'src/api/cat-list';
 import { useCatListContext } from 'src/context/use-platform-context';
 import { useEffect, useState } from 'react';
 import { cat } from 'src/context/types';
+
 export const MashingViewHooks = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -20,14 +21,19 @@ export const MashingViewHooks = () => {
     return newCat;
   };
 
+  const initializeCatLists = (catList: cat[]) => {
+    changeCatList(catList);
+    const initialLeftCat = getRandomCat(catList);
+    const initialRightCat = getRandomCat(catList, initialLeftCat);
+    setLeftCardCat(initialLeftCat);
+    setRightCardCat(initialRightCat);
+  };
+
   useEffect(() => {
     fetchCats()
       .then((cats) => {
-        changeCatList(cats);
-        const initialLeftCat = getRandomCat(cats);
-        const initialRightCat = getRandomCat(cats, initialLeftCat);
-        setLeftCardCat(initialLeftCat);
-        setRightCardCat(initialRightCat);
+        if (getCatList().length > 0) return;
+        initializeCatLists(cats);
       })
       .catch((error) => {
         console.error('Failed to fetch cats:', error);

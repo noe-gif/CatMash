@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" className={primaryFont.className}>
       <body>
         <CatListContextProvider>
-          <SettingsProvider
+          <SettingsProvider // custom  MUI theme initalization
             defaultSettings={{
               themeMode: 'light', // 'light' | 'dark'
               themeDirection: 'ltr', //  'rtl' | 'ltr'
